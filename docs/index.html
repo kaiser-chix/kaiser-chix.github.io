@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>KaiserProf</title>
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <style type="text/css">
+  .bs-component + .bs-component {
+    margin-top: 1rem;
+  }
+  @media (min-width: 768px) {
+    .bs-docs-section {
+      margin-top: 8em;
+    }
+    .bs-component {
+      position: relative;
+    }
+    .bs-component .modal {
+      position: relative;
+      top: auto;
+      right: auto;
+      bottom: auto;
+      left: auto;
+      z-index: 1;
+      display: block;
+    }
+    .bs-component .modal-dialog {
+      width: 90%;
+    }
+    .bs-component .popover {
+      position: relative;
+      display: inline-block;
+      width: 220px;
+      margin: 20px;
+    }
+    .nav-tabs {
+      margin-bottom: 15px;
+    }
+    .progress {
+      margin-bottom: 10px;
+    }
+  }
+  </style>
+
+  <meta name="msapplication-square70x70logo" content="/site-tile-70x70.png">
+  <meta name="msapplication-square150x150logo" content="/site-tile-150x150.png">
+  <meta name="msapplication-wide310x150logo" content="/site-tile-310x150.png">
+  <meta name="msapplication-square310x310logo" content="/site-tile-310x310.png">
+  <meta name="msapplication-TileColor" content="#0078d7">
+  <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="./img/favicons/favicon.ico">
+  <link rel="icon" type="image/vnd.microsoft.icon" href="./img/favicons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="./img/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="./img/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="./img/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="./img/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="./img/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="./img/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="./img/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="./img/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="36x36" href="./img/favicons/android-chrome-36x36.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="./img/favicons/android-chrome-48x48.png">
+  <link rel="icon" type="image/png" sizes="72x72" href="./img/favicons/android-chrome-72x72.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./img/favicons/android-chrome-96x96.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="./img/favicons/android-chrome-128x128.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="./img/favicons/android-chrome-144x144.png">
+  <link rel="icon" type="image/png" sizes="152x152" href="./img/favicons/android-chrome-152x152.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./img/favicons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="./img/favicons/android-chrome-256x256.png">
+  <link rel="icon" type="image/png" sizes="384x384" href="./img/favicons/android-chrome-384x384.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="./img/favicons/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="36x36" href="./img/favicons/icon-36x36.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="./img/favicons/icon-48x48.png">
+  <link rel="icon" type="image/png" sizes="72x72" href="./img/favicons/icon-72x72.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./img/favicons/icon-96x96.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="./img/favicons/icon-128x128.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="./img/favicons/icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="152x152" href="./img/favicons/icon-152x152.png">
+  <link rel="icon" type="image/png" sizes="160x160" href="./img/favicons/icon-160x160.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./img/favicons/icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="196x196" href="./img/favicons/icon-196x196.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="./img/favicons/icon-256x256.png">
+  <link rel="icon" type="image/png" sizes="384x384" href="./img/favicons/icon-384x384.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="./img/favicons/icon-512x512.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicons/icon-16x16.png">
+  <link rel="icon" type="image/png" sizes="24x24" href="./img/favicons/icon-24x24.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicons/icon-32x32.png">
+  <link rel="manifest" href="./img/favicons/manifest.json">
+
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="./">
+        <img src="./img/icon.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="Kaiser">
+        Kaiser
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="./">Top <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./pages/about-me.html">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./pages/link.html">Link</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+
+  <div class="page-header" id="banner">
+    <div class="row my-4">
+      <div class="col-12">
+        <h1 class="display-4">かいざー</h1>
+        <h2 class="display-6">(Kaiser)</h2>
+        <section  class="bs-docs-section">
+        <p class="lead">VRChat Player</p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="./js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  $('.bs-component [data-toggle="popover"]').popover();
+  $('.bs-component [data-toggle="tooltip"]').tooltip();
+</script>
+</body>
+</html>

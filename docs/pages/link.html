@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>KaiserProf</title>
+
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+  <style type="text/css">
+  .bs-component + .bs-component {
+    margin-top: 1rem;
+  }
+  @media (min-width: 768px) {
+    .bs-docs-section {
+      margin-top: 8em;
+    }
+    .bs-component {
+      position: relative;
+    }
+    .bs-component .modal {
+      position: relative;
+      top: auto;
+      right: auto;
+      bottom: auto;
+      left: auto;
+      z-index: 1;
+      display: block;
+    }
+    .bs-component .modal-dialog {
+      width: 90%;
+    }
+    .bs-component .popover {
+      position: relative;
+      display: inline-block;
+      width: 220px;
+      margin: 20px;
+    }
+    .nav-tabs {
+      margin-bottom: 15px;
+    }
+    .progress {
+      margin-bottom: 10px;
+    }
+  }
+  </style>
+
+  <meta name="msapplication-square70x70logo" content="/site-tile-70x70.png">
+  <meta name="msapplication-square150x150logo" content="/site-tile-150x150.png">
+  <meta name="msapplication-wide310x150logo" content="/site-tile-310x150.png">
+  <meta name="msapplication-square310x310logo" content="/site-tile-310x310.png">
+  <meta name="msapplication-TileColor" content="#0078d7">
+  <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../img/favicons/favicon.ico">
+  <link rel="icon" type="image/vnd.microsoft.icon" href="../img/favicons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="../img/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../img/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../img/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../img/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../img/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../img/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../img/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../img/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../img/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="36x36" href="../img/favicons/android-chrome-36x36.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="../img/favicons/android-chrome-48x48.png">
+  <link rel="icon" type="image/png" sizes="72x72" href="../img/favicons/android-chrome-72x72.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../img/favicons/android-chrome-96x96.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="../img/favicons/android-chrome-128x128.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="../img/favicons/android-chrome-144x144.png">
+  <link rel="icon" type="image/png" sizes="152x152" href="../img/favicons/android-chrome-152x152.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/favicons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="../img/favicons/android-chrome-256x256.png">
+  <link rel="icon" type="image/png" sizes="384x384" href="../img/favicons/android-chrome-384x384.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../img/favicons/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="36x36" href="../img/favicons/icon-36x36.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="../img/favicons/icon-48x48.png">
+  <link rel="icon" type="image/png" sizes="72x72" href="../img/favicons/icon-72x72.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../img/favicons/icon-96x96.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="../img/favicons/icon-128x128.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="../img/favicons/icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="152x152" href="../img/favicons/icon-152x152.png">
+  <link rel="icon" type="image/png" sizes="160x160" href="../img/favicons/icon-160x160.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/favicons/icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="196x196" href="../img/favicons/icon-196x196.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="../img/favicons/icon-256x256.png">
+  <link rel="icon" type="image/png" sizes="384x384" href="../img/favicons/icon-384x384.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../img/favicons/icon-512x512.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicons/icon-16x16.png">
+  <link rel="icon" type="image/png" sizes="24x24" href="../img/favicons/icon-24x24.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicons/icon-32x32.png">
+  <link rel="manifest" href="../img/favicons/manifest.json">
+
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="../">
+        <img src="../img/icon.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="Kaiser">
+        Kaiser
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Top</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about-me.html">About Me</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./">Link <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+
+  <div class="page-header" id="banner">
+    <div class="row my-4">
+      <div class="col-12">
+        <h1 class="display-4">各種リンク</h1>
+        <h2 class="display-6">(Links)</h2>
+          <section class="bs-docs-section">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="page-header">
+                <h1 id="tables">連絡先 (Contact information)</h1>
+              </div>
+              <div class="bs-component">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">サービス名 (Service name)</th>
+                      <th scope="col">リンク先 (Link)</th>
+                      <th scope="col">ひとこと (Comment)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Discord</th>
+                      <td><a href="http://discordapp.com/users/309113835518951434" target="_blank" rel="noreferrer noopener">404 (404.not.found_)</a></td>
+                      <td>フレンド申請のときはお名前教えてね。</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">X</th>
+                      <td><a href="https://x.com/KaiserVRChat" target="_blank" rel="noreferrer noopener">@KaiserVRChat</a></td>
+                      <td>最近はリプとかしかみてないかも。</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">にりらみすきー部 (Misskey)</th>
+                      <td><a href="https://misskey.niri.la/@kaiser" target="_blank" rel="noreferrer noopener">@kaiser@misskey.niri.la</a></td>
+                      <td>メイン。Fediverseの人なら繋がれるし、一番見てる。</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">ぶいちゃ.social (Misskey)</th>
+                      <td><a href="https://buicha.social/@kaiser" target="_blank" rel="noreferrer noopener">@kaiser@buicha.social</a></td>
+                      <td>サブ。ここの人と話すときとは割と使ってるかも。</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">ねころびばーちゃる (Misskey)</th>
+                      <td><a href="https://nekolobby.niri.la/@kaiser" target="_blank" rel="noreferrer noopener">@kaiser@nekolobby.niri.la</a></td>
+                      <td>サブ。そんなには使ってないかも。</td>
+                    </tr>
+                    <tr class="table-secondary">
+                      <th scope="row">misskey.io</th>
+                      <td><a href="https://misskey.io/@kaiser" target="_blank" rel="noreferrer noopener">@kaiser@misskey.io</a></td>
+                      <td>ID確保しただけ。ほとんど見てない。</td>
+                    </tr>
+                    <tr class="table-secondary">
+                      <th scope="row">mixi2</th>
+                      <td><a href="https://mixi.social/@Kaiser" target="_blank" rel="noreferrer noopener">@Kaiser</a></td>
+                      <td>ID確保しただけ。ほとんど見てない。</td>
+                    </tr>
+                    <tr class="table-secondary">
+                      <th scope="row">Bluesky</th>
+                      <td><a href="https://bsky.app/profile/kaiser.bsky.social" target="_blank" rel="noreferrer noopener">@kaiser.bsky.social</a></td>
+                      <td>ID確保しただけ。ほとんど見てない。</td>
+                    </tr>
+                    <tr class="table-secondary">
+                      <th scope="row">fedibird</th>
+                      <td><a href="https://fedibird.com/web/accounts/112965519982517804/about" target="_blank" rel="noreferrer noopener">@kaiser@fedibird.com</a></td>
+                      <td>ID確保しただけ。ほとんど見てない。</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div><!-- /example -->
+            </div>
+          </div>
+        </section>
+        <section class="bs-docs-section">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="page-header">
+                <h1 id="tables">欲しいものリスト (Wishlist)</h1>
+              </div>
+              <div class="bs-component">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">サービス名 (Service name)</th>
+                      <th scope="col">リンク先 (Link)</th>
+                      <th scope="col">ひとこと (Comment)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Amazon</th>
+                      <td><a href="https://www.amazon.jp/hz/wishlist/ls/199GSIRVBLFCM?ref_=wl_share" target="_blank" rel="noreferrer noopener">かいざーの姫プリスト</a></td>
+                      <td>編集権限は割と気軽に配ってるので欲しい人は教えて下さい。</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div><!-- /example -->
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="./js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  $('.bs-component [data-toggle="popover"]').popover();
+  $('.bs-component [data-toggle="tooltip"]').tooltip();
+</script>
+</body>
+</html>
