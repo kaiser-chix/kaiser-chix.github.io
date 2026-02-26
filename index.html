@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="assets/favicon.ico">
-  <link rel="stylesheet" href="style.css">
+  <script>document.write('<link rel="stylesheet" href="style.css?t=' + new Date().getTime() + '">');</script>
 </head>
 
 <body>
@@ -87,7 +87,7 @@
       </p>
     </footer>
 
-    <script src="history.js" defer></script>
+    <script>document.write('<script src="history.js?t=' + new Date().getTime() + '" defer><\/script>');</script>
     <script defer>
       document.addEventListener('DOMContentLoaded', () => {
         // 更新履歴データのDOMへのマウント処理
