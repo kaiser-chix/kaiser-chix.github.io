@@ -1,0 +1,386 @@
+/* 90s-00s Retro Style */
+
+:root {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --link-color: #00ffff;
+  /* Cyan/Aqua */
+  --link-visited: #ff00ff;
+  /* Magenta/Fuchsia */
+  --link-active: #ff0000;
+  /* Red */
+  --table-border: #888888;
+}
+
+/* Base Reset & Setup */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "MS PGothic", "ＭＳ Ｐゴシック", "Hiragino Kaku Gothic ProN", sans-serif;
+  /* Standard old-school font */
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-image: url('assets/star_bg.gif');
+  /* Fallback pattern or actual noise */
+  /* Fallback CSS pattern if image not available */
+  background-image: radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 10px),
+    radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 5px),
+    radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 10px);
+  background-size: 550px 550px, 350px 350px, 250px 250px;
+  background-position: 0 0, 40px 60px, 130px 270px;
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+a:active {
+  color: var(--link-active);
+}
+
+a:hover {
+  /* Subtle old school hover */
+  text-decoration: none;
+}
+
+/* Responsive Wrapper */
+#wrapper {
+  max-width: 800px;
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Header & Titles */
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+.rainbow-text {
+  background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+/* Marquee Emulation (since `<marquee>` is deprecated, but we can use CSS animation or just use the tag) */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  border: 1px dotted var(--link-color);
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+/* Blink Emulation */
+.blink-text {
+  animation: blinker 1s linear infinite;
+  color: yellow;
+  font-weight: bold;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Counter */
+.counter-box {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.2rem;
+}
+
+.counter-digits {
+  font-family: monospace;
+  background-color: #333;
+  color: lime;
+  padding: 5px;
+  letter-spacing: 5px;
+  border: inset 3px #555;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+  border-top: 2px ridge #aaa;
+  border-bottom: 2px ridge #aaa;
+}
+
+.nav-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  /* Responsive wrap */
+  justify-content: center;
+  gap: 15px;
+}
+
+.nav-menu li::before {
+  content: "★";
+  color: yellow;
+  margin-right: 5px;
+}
+
+/* Table styling for Profile */
+.profile-table {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 3px outset var(--table-border);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.profile-table th,
+.profile-table td {
+  border: 1px solid var(--table-border);
+  padding: 8px;
+}
+
+.profile-table th {
+  background-color: #000080;
+  /* Navy */
+  color: white;
+  width: 30%;
+  text-align: left;
+}
+
+/* SNS Tables */
+.sns-table {
+  width: 100%;
+  max-width: 100%;
+}
+
+.sns-table th {
+  width: 25%;
+  font-size: 0.85rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.sns-table td {
+  font-size: 0.85rem;
+}
+
+/* あんまり使ってないリンク用（半透明） */
+.inactive-row {
+  opacity: 0.4;
+}
+
+/* スマホ用リンク省略の準備は後ほどのメディアクエリで */
+
+/* Misc Utilities */
+.center {
+  text-align: center;
+}
+
+.hr-retro {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent, var(--link-color), transparent);
+  margin: 20px 0;
+}
+
+.warning-text {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+.small-text {
+  font-size: 0.8rem;
+  color: #ccc;
+  text-align: center;
+}
+
+/* --- Extracted Inline Styles --- */
+.update-history {
+  width: 80%;
+  margin: 0 auto;
+  height: 100px;
+  overflow-y: scroll;
+  border: 1px inset #555;
+  padding: 5px;
+  text-align: left;
+  background-color: #111;
+}
+
+.qa-box {
+  border: 2px dashed #aaa;
+  padding: 10px;
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #222;
+}
+
+.banner-box {
+  border: 2px solid #555;
+  padding: 10px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.banner-img {
+  width: 50%;
+  max-width: 100%;
+  border: 1px solid #777;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.my-banner {
+  font-family: Impact, sans-serif;
+  font-size: 20px;
+  color: black;
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  text-shadow: 1px 1px 0 #fff;
+  margin: 0 auto;
+}
+
+/* Visibility toggles for retro joke */
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* Responsive adjustments for phones */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+    color: #ff00ff;
+    font-size: 0.9rem;
+    border: 1px dotted #ff00ff;
+    padding: 10px;
+    background-color: #220022;
+    margin: 10px auto;
+    width: 90%;
+    box-sizing: border-box;
+  }
+
+  .counter-digits {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  /* SNSリンクの文字を見えなくして「■」に置き換えるマジック */
+  .sns-table td a {
+    font-size: 0;
+    text-decoration: none;
+  }
+
+  .sns-table td a::after {
+    content: "■";
+    font-size: 1.2rem;
+    color: var(--link-color);
+  }
+
+  .sns-table td a:visited::after {
+    color: var(--link-visited);
+  }
+
+  .sns-table td a:active::after {
+    color: var(--link-active);
+  }
+
+  .profile-table th,
+  .profile-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .profile-table th {
+    text-align: center;
+    border-bottom: none;
+  }
+
+  .profile-table td {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  /* sns-tableはリンクを縮小したので横並びのままにする */
+  .sns-table th,
+  .sns-table td {
+    display: table-cell;
+    width: auto;
+    text-align: left;
+    border-bottom: 1px solid var(--table-border);
+    margin-bottom: 0;
+  }
+
+  .sns-table th {
+    text-align: center;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .update-history,
+  .qa-box {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .marquee-content {
+    font-size: 0.9rem;
+  }
+
+  .link-list {
+    padding: 0 10px;
+  }
+}

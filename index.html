@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>†かいざーの館†</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main id="wrapper">
+
+    <div class="marquee-container">
+      <div class="marquee-content">
+        ようこそ！「†かいざーの館†」へ…。ここは管理人の趣味全開の領域です。ゆっくりしていってね！！！
+      </div>
+    </div>
+
+    <header>
+      <h1><span class="rainbow-text">†かいざーの館†</span></h1>
+    </header>
+
+    <section class="center desktop-only">
+      <p>
+        <span class="blink-text">※当サイトはInternet Explorer 5.0以上での閲覧を推奨しています※</span><br>
+        推奨解像度：800×600
+      </p>
+    </section>
+    <section class="center mobile-only">
+      <p>
+        <span class="blink-text">※携帯端末（i-mode等）からのアクセスを検知しました※</span><br>
+        パケ死にご注意ください（笑）<br>
+        表示が崩れる場合はPCからお越しください。
+      </p>
+    </section>
+
+    <section class="center">
+      <p>---- Welcome to my Dark World ----</p>
+      <p>あなたは</p>
+      <div class="counter-box">
+        <span class="counter-digits" id="fake-counter">001337</span>
+      </div>
+      <p>人目の迷える子羊です…。</p>
+      <p class="warning-text">※キリ番（1000、1500、2000...）を踏んだ方はBBSで報告お願いします！※</p>
+    </section>
+
+    <hr class="hr-retro">
+
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="index.html">★ＨＯＭＥ★（玄関）</a></li>
+        <li><a href="profile.html">Ｐｒｏｆｉｌｅ（管理人について）</a></li>
+        <li><a href="gallery.html">Ｇａｌｌｅｒｙ（イラスト展示室）</a></li>
+        <li><a href="link.html">Ｌｉｎｋ（お気に入り・同盟）</a></li>
+        <li><a href="#" onclick="alert('BBSは現在調整中です…'); return false;">ＢＢＳ（掲示板・足跡帳）</a></li>
+      </ul>
+    </nav>
+
+    <hr class="hr-retro">
+
+    <section class="center">
+      <h3>～更新履歴～</h3>
+      <div class="update-history" id="update-history-container">
+        <!-- JSで履歴を挿入 -->
+      </div>
+    </section>
+
+    <footer>
+      <p class="small-text">
+        Copyright (C) 2026 かいざー All Rights Reserved.<br>
+        当サイト内の文章・画像の無断転載を固く禁じます。
+      </p>
+    </footer>
+
+    <script src="history.js" defer></script>
+    <script defer>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 更新履歴データのDOMへのマウント処理
+        if (typeof siteHistory !== 'undefined') {
+          const historyContainer = document.getElementById('update-history-container');
+          if (historyContainer) {
+            historyContainer.innerHTML = siteHistory.trim().replace(/\n/g, '<br>');
+          }
+        }
+
+        // 疑似アクセスカウンター初期化処理
+        // 仕様: 1000〜9999のランダム値。ただしキリ番(100の倍数)およびゾロ目は除外する
+        const counter = document.getElementById('fake-counter');
+        if (counter) {
+          let count;
+          do {
+            count = Math.floor(Math.random() * 9000) + 1000; // 1000〜9999
+          } while (count % 100 === 0 || new Set(String(count)).size === 1); // キリ番やゾロ目を除外
+          counter.textContent = String(count).padStart(6, '0');
+        }
+      });
+    </script>
+  </main>
+</body>
+
+</html>

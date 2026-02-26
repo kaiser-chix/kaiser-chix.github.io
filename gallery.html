@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ｇａｌｌｅｒｙ - †かいざーの館†</title>
+    <link rel="icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ギャラリー専用のスタイル */
+        .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            width: 250px;
+            box-sizing: border-box;
+            border: 2px solid var(--table-border);
+            padding: 10px;
+            background-color: #222;
+            text-align: center;
+        }
+
+        .gallery-item img {
+            max-width: 100%;
+            height: auto;
+            border: 1px inset #555;
+            /* ダミー画像用のスタイル。あとでちゃんとしたの描く */
+            background-color: #000;
+            display: block;
+            margin: 0 auto;
+            min-height: 150px;
+            /* For the placeholder */
+            position: relative;
+        }
+
+        /* ダミー画像の上に表示する文字 */
+        .gallery-item img::after {
+            content: 'NO IMAGE';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #555;
+            font-family: monospace;
+        }
+
+        .gallery-title {
+            color: lime;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .gallery-desc {
+            font-size: 0.8rem;
+            color: #ccc;
+            margin-top: 5px;
+        }
+
+        .enter-warning {
+            color: red;
+            font-weight: bold;
+            border: 2px dotted red;
+            padding: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            background-color: rgba(50, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <main id="wrapper">
+        <header>
+            <h1><span class="rainbow-text">Ｇａｌｌｅｒｙ（イラスト展示室）</span></h1>
+        </header>
+
+        <section class="center">
+            <p>管理人が描いたイラストを展示しています。<br>愛だけはあります。</p>
+
+            <div class="enter-warning">
+                ※警告※<br>
+                ここは管理人のお絵かきがあります。<br>
+                ・無断転載禁止<br>
+                ・直リンク厳禁<br>
+                ・荒らし、中傷はブラウザバック推奨
+            </div>
+
+            <div class="gallery-grid" id="gallery-container">
+                <!-- イラストは gallery_data.js から引っ張ってくる -->
+            </div>
+
+            <p class="small-text">※感想はBBSまでお願いします！（お世辞歓迎）</p>
+
+        </section>
+
+        <hr class="hr-retro">
+
+        <nav class="center">
+            <a href="index.html">←ＨＯＭＥへ戻る</a>
+        </nav>
+
+        <br><br>
+
+        <footer>
+            <p class="small-text">
+                Copyright (C) 2026 かいざー All Rights Reserved.<br>
+            </p>
+        </footer>
+
+    </main>
+
+    <script src="gallery_data.js" defer></script>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof galleryData !== 'undefined') {
+                const container = document.getElementById('gallery-container');
+                let html = '';
+                galleryData.forEach(item => {
+                    html += `
+                    <div class="gallery-item">
+                        <img src="assets/${item.image}" alt="${item.title}">
+                        <div class="gallery-title">${item.title}</div>
+                        <div class="gallery-desc">${item.desc}</div>
+                    </div>
+                    `;
+                });
+                if (container) {
+                    container.innerHTML = html;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
