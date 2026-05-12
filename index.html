@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KaiserProf</title>
     <link rel="icon" href="assets/favicon.ico">
-    
+
     <!-- OGP (Open Graph Protocol) - SNSシェア時のプレビュー設定 -->
     <meta property="og:type" content="profile">
     <meta property="og:title" content="KaiserProf">
@@ -21,28 +22,35 @@
     <meta name="twitter:title" content="KaiserProf">
     <meta name="twitter:description" content="かいざーのプロフィールサイトです">
     <meta name="twitter:image" content="https://kaiser-chix.github.io/assets/icon.png">
-    
+
     <!-- セキュリティ対策: Content Security Policy (CSP) -->
     <!-- XSSを防ぐため、スクリプトやスタイルの読み込み元を厳格に制限 -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self';">
-    
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self';">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="bg-animation"></div>
 
     <!-- 右端ドットナビゲーション -->
     <nav class="dot-nav" id="dot-nav" aria-label="ページ内ナビゲーション">
         <a href="#section-top" class="dot-nav-item" data-label="Top" aria-label="Top"><span class="dot"></span></a>
-        <a href="#section-about" class="dot-nav-item" data-label="About Me" aria-label="About Me"><span class="dot"></span></a>
-        <a href="#section-env" class="dot-nav-item" data-label="Environment &amp; Status" aria-label="Environment and Status"><span class="dot"></span></a>
-        <a href="#section-connect" class="dot-nav-item" data-label="Connect" aria-label="Connect"><span class="dot"></span></a>
+        <a href="#section-about" class="dot-nav-item" data-label="About Me" aria-label="About Me"><span
+                class="dot"></span></a>
+        <a href="#section-env" class="dot-nav-item" data-label="Environment &amp; Status"
+            aria-label="Environment and Status"><span class="dot"></span></a>
+        <a href="#section-connect" class="dot-nav-item" data-label="Connect" aria-label="Connect"><span
+                class="dot"></span></a>
     </nav>
 
     <div class="container">
@@ -55,7 +63,7 @@
             </div>
             <h1 class="user-name">かいざー</h1>
             <p class="vrchat-id">VRChat ID: かいざー</p>
-            <p class="catchphrase">「まったりとお喋りしたり、写真を取ったり、ワールドを作ったりしています」</p>
+            <p class="catchphrase">まったりとお喋りしたり、写真を取ったり、ワールドを作ったりしています<br>今は交通事故に遭って入院中……</p>
         </header>
 
         <!-- About Section -->
@@ -97,14 +105,16 @@
         <section class="glass-panel section-links" id="section-connect">
             <h2>Connect</h2>
             <div class="link-cards-container">
-                <a href="https://vrchat.com/home/user/usr_2dc5feac-036e-48bd-b00c-5d810f39b242" class="link-card" target="_blank" rel="noopener noreferrer">
+                <a href="https://vrchat.com/home/user/usr_2dc5feac-036e-48bd-b00c-5d810f39b242" class="link-card"
+                    target="_blank" rel="noopener noreferrer">
                     <div class="link-card-header">
                         <span class="service-name">VRChat</span>
                         <span class="service-id">かいざー</span>
                     </div>
                     <p class="link-memo">フレンド申請はわかる人なら多分通すよ。</p>
                 </a>
-                <a href="https://www.amazon.jp/hz/wishlist/ls/199GSIRVBLFCM?ref_=wl_share" class="link-card special-card" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.amazon.jp/hz/wishlist/ls/199GSIRVBLFCM?ref_=wl_share"
+                    class="link-card special-card" target="_blank" rel="noopener noreferrer">
                     <div class="link-card-header">
                         <span class="service-name">Amazon</span>
                         <span class="service-id">かいざーの姫プリスト</span>
@@ -139,28 +149,32 @@
                     </div>
                     <p class="link-memo">サブ。そんなには使ってないかも。</p>
                 </a>
-                <a href="https://misskey.io/@kaiser" class="link-card inactive" target="_blank" rel="noopener noreferrer">
+                <a href="https://misskey.io/@kaiser" class="link-card inactive" target="_blank"
+                    rel="noopener noreferrer">
                     <div class="link-card-header">
                         <span class="service-name">misskey.io</span>
                         <span class="service-id">@kaiser@misskey.io</span>
                     </div>
                     <p class="link-memo">ID確保しただけ。ほとんど見てない。</p>
                 </a>
-                <a href="https://mixi.social/@Kaiser" class="link-card inactive" target="_blank" rel="noopener noreferrer">
+                <a href="https://mixi.social/@Kaiser" class="link-card inactive" target="_blank"
+                    rel="noopener noreferrer">
                     <div class="link-card-header">
                         <span class="service-name">mixi2</span>
                         <span class="service-id">@Kaiser</span>
                     </div>
                     <p class="link-memo">ID確保しただけ。ほとんど見てない。</p>
                 </a>
-                <a href="https://bsky.app/profile/kaiser.bsky.social" class="link-card inactive" target="_blank" rel="noopener noreferrer">
+                <a href="https://bsky.app/profile/kaiser.bsky.social" class="link-card inactive" target="_blank"
+                    rel="noopener noreferrer">
                     <div class="link-card-header">
                         <span class="service-name">Bluesky</span>
                         <span class="service-id">@kaiser.bsky.social</span>
                     </div>
                     <p class="link-memo">ID確保しただけ。ほとんど見てない。</p>
                 </a>
-                <a href="https://fedibird.com/web/accounts/112965519982517804/about" class="link-card inactive" target="_blank" rel="noopener noreferrer">
+                <a href="https://fedibird.com/web/accounts/112965519982517804/about" class="link-card inactive"
+                    target="_blank" rel="noopener noreferrer">
                     <div class="link-card-header">
                         <span class="service-name">fedibird</span>
                         <span class="service-id">@kaiser@fedibird.com</span>
@@ -169,7 +183,7 @@
                 </a>
             </div>
         </section>
-        
+
         <footer>
             <p>&copy; 2026 かいざー. All Rights Reserved.</p>
         </footer>
@@ -178,4 +192,5 @@
     <!-- Custom JS -->
     <script src="js/main.js"></script>
 </body>
+
 </html>
