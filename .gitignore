@@ -1,0 +1,19 @@
+# OS固有ファイル
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# エディタ設定
+.vscode/
+.idea/
+*.code-workspace
+
+# プロジェクト管理用ドキュメント（公開不要）
+docs/
+
+# AIが生成したプレースホルダー画像（公開不要）
+assets/avatar-placeholder.png
+
+# ログ
+*.log
