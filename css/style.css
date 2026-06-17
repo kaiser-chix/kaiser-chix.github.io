@@ -455,3 +455,16 @@ footer {
     margin-top: 2rem;
     padding-bottom: 2rem;
 }
+
+/* イエローカード（FANBOX用） */
+.link-card.yellow-card::before {
+    background: #ffcc00;
+}
+.link-card.yellow-card:hover {
+    border-color: rgba(255, 204, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(255, 204, 0, 0.1);
+}
+.link-card.yellow-card .service-name {
+    color: #ffcc00;
+}
+
