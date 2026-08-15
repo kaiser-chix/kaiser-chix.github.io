@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'tag-pcvr': 'PCVR',
             'tag-quest': 'Quest 3 (Suspended due to hospitalization)',
             'tag-fulltrack': 'Full-body Tracking (6-point) (Suspended due to hospitalization)',
-            'link-niri-name': 'Nirila Misskey (Misskey)',
+            'link-niri-name': 'Nirila Misskey Bu (Misskey)',
             'link-buicha-name': 'buicha.social (Misskey)',
             'link-neko-name': 'Nekolobby Virtual (Misskey)',
             'link-x-name': 'X (formerly Twitter)',
