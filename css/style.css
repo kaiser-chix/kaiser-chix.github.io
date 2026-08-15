@@ -486,3 +486,51 @@ footer {
     opacity: 0.7;
 }
 
+/* Language Switcher */
+.lang-switch {
+    position: fixed;
+    top: 1rem;
+    right: 1.5rem;
+    z-index: 1000;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 0.25rem;
+    border-radius: 20px;
+    display: flex;
+    gap: 0.1rem;
+    box-shadow: var(--glass-shadow);
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.3rem 0.8rem;
+    font-family: var(--font-en);
+    font-size: 0.75rem;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    color: var(--text-primary);
+}
+
+.lang-btn.active {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* スマホ表示でのスイッチの位置微調整 */
+@media (max-width: 500px) {
+    .lang-switch {
+        top: 0.8rem;
+        right: 0.8rem;
+    }
+}
+

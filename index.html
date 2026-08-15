@@ -42,6 +42,12 @@
 <body>
     <div class="bg-animation"></div>
 
+    <!-- 言語切り替えスイッチ -->
+    <div class="lang-switch" role="group" aria-label="Language Select">
+        <button class="lang-btn active" data-lang="ja">JA</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
     <!-- 右端ドットナビゲーション -->
     <nav class="dot-nav" id="dot-nav" aria-label="ページ内ナビゲーション">
         <a href="#section-top" class="dot-nav-item" data-label="Top" aria-label="Top"><span class="dot"></span></a>
@@ -61,9 +67,9 @@
                 <img src="assets/icon.png" alt="Avatar" class="avatar-img" id="avatarImg">
                 <div class="status-indicator online"></div>
             </div>
-            <h1 class="user-name">かいざー</h1>
-            <p class="vrchat-id">VRChat ID: かいざー</p>
-            <p class="catchphrase">まったりとお喋りしたり、写真を取ったり、ワールドを作ったりしています<br>趣味は、お絵かきとか、物書きとか、TRPGとか。<br>今は交通事故に遭って入院中……</p>
+            <h1 class="user-name" data-i18n="user-name">かいざー</h1>
+            <p class="vrchat-id" data-i18n="vrchat-id">VRChat ID: かいざー</p>
+            <p class="catchphrase" data-i18n="catchphrase">まったりとお喋りしたり、写真を取ったり、ワールドを作ったりしています<br>趣味は、お絵かきとか、物書きとか、TRPGとか。<br>今は交通事故に遭って入院中……</p>
         </header>
 
         <!-- About Section -->
@@ -74,7 +80,7 @@
                     <span class="icon" aria-hidden="true">💬</span>
                     <div class="details">
                         <h3>Play Style</h3>
-                        <p>雑談メイン / 時々謎解きやイベントに参加</p>
+                        <p data-i18n="play-style-desc">雑談メイン / 時々謎解きやイベントに参加</p>
                     </div>
                 </div>
                 <div class="about-item">
@@ -93,9 +99,9 @@
             <div class="tag-cloud">
                 <span class="tag">Desktop</span>
                 <span class="tag">Mobile</span>
-                <span class="tag inactive">PCVR (入院中により休止中)</span>
-                <span class="tag inactive">Quest 3 (入院中により休止中)</span>
-                <span class="tag inactive">フルトラ (6点) (入院中により休止中)</span>
+                <span class="tag inactive" data-i18n="tag-pcvr">PCVR (入院中により休止中)</span>
+                <span class="tag inactive" data-i18n="tag-quest">Quest 3 (入院中により休止中)</span>
+                <span class="tag inactive" data-i18n="tag-fulltrack">フルトラ (6点) (入院中により休止中)</span>
                 <span class="tag">日本語 (Native)</span>
                 <span class="tag">English (Read / Write Only)</span>
             </div>
@@ -114,28 +120,28 @@
                             <span class="service-name">VRChat</span>
                             <span class="service-id">かいざー</span>
                         </div>
-                        <p class="link-memo">フレンド申請はわかる人なら多分通すよ。</p>
+                        <p class="link-memo" data-i18n="link-vrchat-memo">フレンド申請はわかる人なら多分通すよ。</p>
                     </a>
                     <a href="https://misskey.niri.la/@kaiser" class="link-card" target="_blank" rel="noopener noreferrer">
                         <div class="link-card-header">
                             <span class="service-name">にりらみすきー部 (Misskey)</span>
                             <span class="service-id">@kaiser@misskey.niri.la</span>
                         </div>
-                        <p class="link-memo">メイン。Fediverseの人なら繋がれるし、一番見てる。</p>
+                        <p class="link-memo" data-i18n="link-niri-memo">メイン。Fediverseの人なら繋がれるし、一番見てる。</p>
                     </a>
                     <a href="https://buicha.social/@kaiser" class="link-card" target="_blank" rel="noopener noreferrer">
                         <div class="link-card-header">
                             <span class="service-name">ぶいちゃ.social (Misskey)</span>
                             <span class="service-id">@kaiser@buicha.social</span>
                         </div>
-                        <p class="link-memo">サブ。ここの人と話すときとは割と使ってるかも。</p>
+                        <p class="link-memo" data-i18n="link-buicha-memo">サブ。ここの人と話すときとは割と使ってるかも。</p>
                     </a>
                     <a href="https://x.com/KaiserVRChat" class="link-card" target="_blank" rel="noopener noreferrer">
                         <div class="link-card-header">
                             <span class="service-name">X (旧Twitter)</span>
                             <span class="service-id">@KaiserVRChat</span>
                         </div>
-                        <p class="link-memo">最近はリプとかしかみてないかも。</p>
+                        <p class="link-memo" data-i18n="link-x-memo">最近はリプとかしかみてないかも。</p>
                     </a>
                 </div>
             </div>
@@ -147,23 +153,23 @@
                         class="link-card special-card" target="_blank" rel="noopener noreferrer">
                         <div class="link-card-header">
                             <span class="service-name">Amazon</span>
-                            <span class="service-id">かいざーの姫プリスト</span>
+                            <span class="service-id" data-i18n="link-amazon-id">かいざーの姫プリスト</span>
                         </div>
-                        <p class="link-memo">編集権限は割と気軽に配ってるので欲しい人は教えて下さい。</p>
+                        <p class="link-memo" data-i18n="link-amazon-memo">編集権限は割と気軽に配ってるので欲しい人は教えて下さい。</p>
                     </a>
                     <a href="https://booth.pm/wish_list_names/8BzTJnj5" class="link-card special-card" target="_blank" rel="noopener noreferrer">
                         <div class="link-card-header">
                             <span class="service-name">Booth</span>
-                            <span class="service-id">ほしいもの</span>
+                            <span class="service-id" data-i18n="link-booth-id">ほしいもの</span>
                         </div>
-                        <p class="link-memo">Boothの欲しいものリスト。いろいろ放り込んでる。無いものでも歓迎。</p>
+                        <p class="link-memo" data-i18n="link-booth-memo">Boothの欲しいものリスト。いろいろ放り込んでる。無いものでも歓迎。</p>
                     </a>
                     <a href="https://www.fanbox.cc/@kaiservrchat" class="link-card yellow-card" target="_blank" rel="noopener noreferrer">
                         <div class="link-card-header">
                             <span class="service-name">FANBOX</span>
                             <span class="service-id">@kaiservrchat</span>
                         </div>
-                        <p class="link-memo">小説やイラストの投稿、支援など。雑多に色々投げるところ。</p>
+                        <p class="link-memo" data-i18n="link-fanbox-memo">小説やイラストの投稿、支援など。雑多に色々投げるところ。</p>
                     </a>
                 </div>
             </div>
@@ -176,7 +182,7 @@
                             <span class="service-name">ねころびばーちゃる (Misskey)</span>
                             <span class="service-id">@kaiser@nekolobby.niri.la</span>
                         </div>
-                        <p class="link-memo">サブ。そんなには使ってないかも。</p>
+                        <p class="link-memo" data-i18n="link-neko-memo">サブ。そんなには使ってないかも。</p>
                     </a>
                     <a href="https://misskey.io/@kaiser" class="link-card inactive" target="_blank"
                         rel="noopener noreferrer">
@@ -184,7 +190,7 @@
                             <span class="service-name">misskey.io (Misskey)</span>
                             <span class="service-id">@kaiser@misskey.io</span>
                         </div>
-                        <p class="link-memo">ID確保しただけ。ほとんど見てない。</p>
+                        <p class="link-memo" data-i18n="link-io-memo">ID確保しただけ。ほとんど見てない。</p>
                     </a>
                     <a href="https://mixi.social/@Kaiser" class="link-card inactive" target="_blank"
                         rel="noopener noreferrer">
@@ -192,7 +198,7 @@
                             <span class="service-name">mixi2</span>
                             <span class="service-id">@Kaiser</span>
                         </div>
-                        <p class="link-memo">ID確保しただけ。ほとんど見てない。</p>
+                        <p class="link-memo" data-i18n="link-mixi-memo">ID確保しただけ。ほとんど見てない。</p>
                     </a>
                     <a href="https://bsky.app/profile/kaiser.bsky.social" class="link-card inactive" target="_blank"
                         rel="noopener noreferrer">
@@ -200,7 +206,7 @@
                             <span class="service-name">Bluesky</span>
                             <span class="service-id">@kaiser.bsky.social</span>
                         </div>
-                        <p class="link-memo">ID確保しただけ。ほとんど見てない。</p>
+                        <p class="link-memo" data-i18n="link-bsky-memo">ID確保しただけ。ほとんど見てない。</p>
                     </a>
                     <a href="https://fedibird.com/web/accounts/112965519982517804/about" class="link-card inactive"
                         target="_blank" rel="noopener noreferrer">
@@ -208,14 +214,14 @@
                             <span class="service-name">fedibird</span>
                             <span class="service-id">@kaiser@fedibird.com</span>
                         </div>
-                        <p class="link-memo">ID確保しただけ。ほとんど見てない。</p>
+                        <p class="link-memo" data-i18n="link-fedi-memo">ID確保しただけ。ほとんど見てない。</p>
                     </a>
                 </div>
             </div>
         </section>
 
         <footer>
-            <p>&copy; 2026 かいざー. All Rights Reserved.</p>
+            <p data-i18n="footer-text">&copy; 2026 かいざー. All Rights Reserved.</p>
         </footer>
     </div>
 
