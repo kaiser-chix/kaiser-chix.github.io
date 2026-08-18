@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = [
         document.getElementById('section-top'),
         document.getElementById('section-about'),
+        document.getElementById('section-lang'),
         document.getElementById('section-env'),
         document.getElementById('section-connect'),
     ].filter(Boolean);
