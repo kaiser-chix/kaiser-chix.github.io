@@ -57,6 +57,15 @@ document.addEventListener('DOMContentLoaded', () => {
             '334', '4545', '0721', '8181', '8585',
             '1337', '420', '69', '67', '8008', '80085'
         ];
+        const goroNumberFragments = [
+            // 定番の挨拶・感謝・縁起物などの語呂合わせ。
+            '39', '4649', '2525', '2828', '3150', '5963',
+            '1122', '1188', '1129', '1173', '1192', '4126', '4989', '8341', '9674',
+            // ポケベルで使われた挨拶やメッセージ。
+            '0840', '0833', '0106', '3470', '14106', '10105', '21104', '724106',
+            // その他のよく知られる語呂合わせ。
+            '18782', '37564', '634', '831', '889'
+        ];
 
         const isSpecialNumber = (value) => {
             const digits = String(value);
@@ -68,7 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const isPalindrome = digits === [...digits].reverse().join('');
             const isSequence = '0123456789'.includes(digits) || '9876543210'.includes(digits);
             const containsMemeNumber = memeNumberFragments.some(fragment => digits.includes(fragment));
-            return isRound || isRepeated || isPalindrome || isSequence || containsMemeNumber;
+            const containsGoroNumber = goroNumberFragments.some(fragment => digits.includes(fragment));
+            return isRound || isRepeated || isPalindrome || isSequence
+                || containsMemeNumber || containsGoroNumber;
         };
 
         const nextAllowedNumber = (value) => {
