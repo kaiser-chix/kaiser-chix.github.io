@@ -1,48 +1,4 @@
-// main.js
-
 document.addEventListener('DOMContentLoaded', () => {
-    // 脆弱性対策: 
-    // 動的にコンテンツを追加する場合は、innerHTMLではなくtextContentを使用することでXSSを防止します。
-    // ※静的な翻訳データなど安全が保証されている値のみinnerHTMLを使用します。
-
-    // アバター画像をホバーしたときの3Dインタラクティブエフェクト
-    const avatarImg = document.getElementById('avatarImg');
-    if (avatarImg) {
-        avatarImg.addEventListener('mousemove', (e) => {
-            const rect = avatarImg.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = ((y - centerY) / centerY) * -15;
-            const rotateY = ((x - centerX) / centerX) * 15;
-            
-            avatarImg.style.transform = `scale(1.05) perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-
-        avatarImg.addEventListener('mouseleave', () => {
-            avatarImg.style.transform = 'scale(1) perspective(500px) rotateX(0) rotateY(0)';
-        });
-    }
-
-    // スクロール時のフェードインエフェクト設定
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    document.querySelectorAll('.glass-panel').forEach((panel) => {
-        observer.observe(panel);
-    });
-
     // スクロール位置に応じてナビリンクのアクティブ状態を更新
     const sections = [
         document.getElementById('section-top'),
@@ -52,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('section-connect'),
     ].filter(Boolean);
 
-    const navLinks = document.querySelectorAll('.dot-nav-item');
+    const navLinks = document.querySelectorAll('.nav-item');
     const navHeight = 20;
 
     const updateActiveNav = () => {
@@ -62,23 +18,128 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentId = section.id;
             }
         }
+        // 同じ行に並ぶ項目は、移動先のハッシュを優先して選択する。
+        const anchorSection = sections.find(section => '#' + section.id === window.location.hash);
+        const currentSection = sections.find(section => section.id === currentId);
+        if (anchorSection && currentSection && Math.abs(
+            anchorSection.getBoundingClientRect().top - currentSection.getBoundingClientRect().top
+        ) < 1) {
+            currentId = anchorSection.id;
+        }
         navLinks.forEach(link => {
             if (link.getAttribute('href') === '#' + currentId) {
                 link.classList.add('active');
+                link.setAttribute('aria-current', 'location');
             } else {
                 link.classList.remove('active');
+                link.removeAttribute('aria-current');
             }
         });
     };
 
     window.addEventListener('scroll', updateActiveNav, { passive: true });
+    window.addEventListener('hashchange', updateActiveNav);
+    window.addEventListener('resize', updateActiveNav);
     updateActiveNav();
+
+    // 表示用のカウンター。訪問数の送信や集計は行わず、このブラウザ内だけで続ける。
+    const counterElement = document.getElementById('visit-counter');
+    const counterValue = document.getElementById('counter-value');
+    if (counterElement && counterValue) {
+        const storageKey = 'kaiserprof-visit-counter';
+        const timeout = 5 * 60 * 1000;
+        const minimum = 100000;
+        const maximum = 999999;
+        const now = Date.now();
+
+        const isSpecialNumber = (value) => {
+            const digits = String(value);
+            const isRound = value % 100 === 0;
+            // 全桁のゾロ目に加え、末尾が3桁以上揃う数字も避ける。
+            const isRepeated = /(\d)\1{2,}$/.test(digits)
+                || digits === digits.slice(0, 2).repeat(3)
+                || digits === digits.slice(0, 3).repeat(2);
+            const isPalindrome = digits === [...digits].reverse().join('');
+            const isSequence = '0123456789'.includes(digits) || '9876543210'.includes(digits);
+            return isRound || isRepeated || isPalindrome || isSequence;
+        };
+
+        const nextAllowedNumber = (value) => {
+            let next = value;
+            while (true) {
+                if (next > maximum) next = minimum;
+                if (!isSpecialNumber(next)) return next;
+                next += 1;
+            }
+        };
+
+        let previous = null;
+        try {
+            previous = JSON.parse(localStorage.getItem(storageKey));
+        } catch {
+            // 保存データが壊れている場合や保存が制限されている場合は、新しく始める。
+        }
+
+        const canContinue = previous !== null
+            && Number.isInteger(previous.value)
+            && previous.value >= minimum && previous.value <= maximum
+            && Number.isSafeInteger(previous.updatedAt)
+            && previous.updatedAt >= 0
+            && now >= previous.updatedAt && now - previous.updatedAt < timeout;
+        const startingValue = canContinue
+            ? previous.value + 1
+            : minimum + Math.floor(Math.random() * (maximum - minimum + 1));
+        const value = nextAllowedNumber(startingValue);
+
+        try {
+            localStorage.setItem(storageKey, JSON.stringify({ value, updatedAt: now }));
+        } catch {
+            // 保存できなくても、カウンターの表示と他の機能は使えるようにする。
+        }
+
+        counterValue.setAttribute('aria-label', String(value));
+        for (const digit of String(value)) {
+            const span = document.createElement('span');
+            span.textContent = digit;
+            counterValue.appendChild(span);
+        }
+        counterElement.hidden = false;
+    }
 
     // ====================================================
     // 多言語（日・英）切り替え処理
     // ====================================================
     const translations = {
         ja: {
+            'skip-link': '本文へ移動',
+            'header-note': 'インターネットの片隅で、のんびりと。',
+            'menu-title': 'もくじ',
+            'nav-top': 'トップページ',
+            'nav-about': '自己紹介',
+            'nav-language': 'ことば',
+            'nav-env': 'プレイ環境',
+            'nav-connect': 'リンク集',
+            'note-title': '管理人より',
+            'note-body': 'お喋り、創作、VRChat。\n好きなものを、好きなペースで。',
+            'sidebar-caption': '寄り道していってね。',
+            'counter-before': 'あなたは',
+            'counter-after': '人目のお客様です',
+            'welcome-title': 'ようこそ、かいざーのホームページへ。',
+            'welcome-subtitle': 'ここは、かいざーのことと、いろんな居場所をまとめたページです。',
+            'profile-title': '管理人のプロフィール',
+            'about-title': 'もう少し、自己紹介',
+            'play-style-title': 'あそびかた',
+            'active-time-title': 'よくいる時間',
+            'language-title': 'ことば',
+            'env-title': 'プレイ環境',
+            'connect-title': 'インターネットの居場所',
+            'links-intro': 'あちこちにいます。気の合いそうなところで、どうぞよろしく。',
+            'main-accounts': 'いつもの居場所',
+            'works': 'つくったもの・ご依頼',
+            'wishlist': 'ほしいもの',
+            'other-accounts': 'そのほかのアカウント',
+            'back-top': '↑ ページのいちばん上へ',
+            'footer-thanks': 'ここまで見てくれて、ありがとう。',
             'meta-description': 'かいざーのプロフィールサイトです',
             'user-name': 'かいざー',
             'vrchat-id': 'VRChat ID: かいざー',
@@ -111,6 +172,35 @@ document.addEventListener('DOMContentLoaded', () => {
             'footer-text': '© 2026 かいざー. All Rights Reserved.'
         },
         en: {
+            'skip-link': 'Skip to content',
+            'header-note': 'Taking it easy in a little corner of the internet.',
+            'menu-title': 'Menu',
+            'nav-top': 'Home',
+            'nav-about': 'About me',
+            'nav-language': 'Languages',
+            'nav-env': 'Setup',
+            'nav-connect': 'Links',
+            'note-title': 'A little note',
+            'note-body': 'Chatting, creating, VRChat.\nThe things I love, at my own pace.',
+            'sidebar-caption': 'Stay a little while.',
+            'counter-before': 'You are visitor',
+            'counter-after': 'Thanks for stopping by.',
+            'welcome-title': "Welcome to Kaiser's homepage.",
+            'welcome-subtitle': 'A little about me, and the places you can find me on the web.',
+            'profile-title': 'Meet the webmaster',
+            'about-title': 'A little more about me',
+            'play-style-title': 'Play style',
+            'active-time-title': 'Active hours',
+            'language-title': 'Languages',
+            'env-title': 'My setup',
+            'connect-title': 'My corners of the internet',
+            'links-intro': 'You can find me here and there. Come say hello wherever you feel at home.',
+            'main-accounts': 'My usual hangouts',
+            'works': 'Creations & requests',
+            'wishlist': 'Wishlists',
+            'other-accounts': 'Other accounts',
+            'back-top': '↑ Back to the top',
+            'footer-thanks': 'Thanks for stopping by.',
             'meta-description': "Kaiser's profile site.",
             'user-name': 'Kaiser',
             'vrchat-id': 'VRChat ID: かいざー',
@@ -179,11 +269,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 言語の適用
     const setLanguage = (lang) => {
-        localStorage.setItem('pref-lang', lang);
+        if (!Object.hasOwn(translations, lang)) lang = 'ja';
+        // 保存が制限されている環境でも、切り替え自体は使えるようにする。
+        try {
+            localStorage.setItem('pref-lang', lang);
+        } catch {
+            // 保存できない場合は、このページを開いている間だけ適用する。
+        }
         document.documentElement.lang = lang;
 
         // UIボタンのアクティブ表示切り替え
         document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.setAttribute('aria-pressed', String(btn.getAttribute('data-lang') === lang));
             if (btn.getAttribute('data-lang') === lang) {
                 btn.classList.add('active');
             } else {
@@ -196,9 +293,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const key = el.getAttribute('data-i18n');
             const translation = translations[lang]?.[key];
             if (translation) {
-                // 改行タグを含む特定の要素（catchphrase）のみinnerHTMLを使用し、他はXSS対策としてtextContentを使用
+                // 翻訳に含まれる改行だけを要素化し、本文はテキストとして挿入する。
                 if (key === 'catchphrase') {
-                    el.innerHTML = translation;
+                    const lines = translation.split('<br>');
+                    el.replaceChildren();
+                    lines.forEach((line, index) => {
+                        if (index > 0) el.appendChild(document.createElement('br'));
+                        el.appendChild(document.createTextNode(line));
+                    });
                 } else {
                     el.textContent = translation;
                 }
@@ -217,6 +319,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 現地時間表示の更新
         updateActiveTime(lang);
+        document.querySelector('.avatar-img').alt = lang === 'en'
+            ? "Kaiser's avatar illustration" : 'かいざーのアバターイラスト';
+        document.querySelector('.site-brand').setAttribute('aria-label', lang === 'en' ? 'KaiserProf home' : 'KaiserProf ホーム');
+        document.querySelector('.menu-panel').setAttribute('aria-label', lang === 'en' ? 'Page navigation' : 'ページ内ナビゲーション');
     };
 
     // スイッチボタンのイベント設定
@@ -229,6 +335,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 初期化（ストレージ優先、無ければブラウザ言語、デフォルトはja）
     const browserLang = navigator.language.startsWith('en') ? 'en' : 'ja';
-    const savedLang = localStorage.getItem('pref-lang') || browserLang;
+    let savedLang = browserLang;
+    try {
+        savedLang = localStorage.getItem('pref-lang') || browserLang;
+    } catch {
+        // 保存済みの設定を読めない場合はブラウザの言語を使う。
+    }
     setLanguage(savedLang);
 });

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KaiserProf</title>
+    <meta name="description" content="かいざーのプロフィールサイトです">
     <link rel="icon" href="assets/favicon.ico">
 
     <!-- OGP (Open Graph Protocol) - SNSシェア時のプレビュー設定 -->
@@ -26,87 +27,92 @@
     <!-- セキュリティ対策: Content Security Policy (CSP) -->
     <!-- XSSを防ぐため、スクリプトやスタイルの読み込み元を厳格に制限 -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self';">
+        content="default-src 'self'; style-src 'self'; img-src 'self' data: https:; script-src 'self';">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Custom CSS -->
+    <!-- スタイルとスクリプトは同一サイトから読み込む -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div class="bg-animation"></div>
-
-    <!-- 言語切り替えスイッチ -->
-    <div class="lang-switch" role="group" aria-label="Language Select">
-        <button class="lang-btn active" data-lang="ja"><img src="https://flagcdn.com/w20/jp.png" alt="" class="flag-icon"><span>JA</span></button>
-        <button class="lang-btn" data-lang="en"><img src="https://flagcdn.com/w20/us.png" alt="" class="flag-icon"><span>EN</span></button>
-    </div>
-
-    <!-- 右端ドットナビゲーション -->
-    <nav class="dot-nav" id="dot-nav" aria-label="ページ内ナビゲーション">
-        <a href="#section-top" class="dot-nav-item" data-label="Top" aria-label="Top"><span class="dot"></span></a>
-        <a href="#section-about" class="dot-nav-item" data-label="About Me" aria-label="About Me"><span
-                class="dot"></span></a>
-        <a href="#section-lang" class="dot-nav-item" data-label="Language" aria-label="Language"><span
-                class="dot"></span></a>
-        <a href="#section-env" class="dot-nav-item" data-label="Environment &amp; Status"
-            aria-label="Environment and Status"><span class="dot"></span></a>
-        <a href="#section-connect" class="dot-nav-item" data-label="Connect" aria-label="Connect"><span
-                class="dot"></span></a>
-    </nav>
-
-    <div class="container">
-        <!-- Hero Section -->
-        <header class="glass-panel profile-hero" id="section-top">
-            <div class="avatar-container">
-                <!-- プレースホルダー画像 -->
-                <img src="assets/icon.png" alt="Avatar" class="avatar-img" id="avatarImg">
-                <div class="status-indicator online"></div>
+    <a class="skip-link" href="#main-content" data-i18n="skip-link">本文へ移動</a>
+    <div class="site-shell" id="section-top">
+        <header class="site-header">
+            <div class="title-bar"><span><span aria-hidden="true">▧</span> KaiserProf — Personal Homepage</span><span class="window-marks" aria-hidden="true">─ □ ×</span></div>
+            <div class="masthead">
+                <a class="site-brand" href="#section-top" aria-label="KaiserProf ホーム"><span class="brand-symbol" aria-hidden="true">K</span><span>Kaiser<span class="brand-end">Prof</span><small>KAISER'S PERSONAL HOMEPAGE</small></span></a>
+                <div class="header-note"><span data-i18n="header-note">インターネットの片隅で、のんびりと。</span><div class="lang-switch" role="group" aria-label="日本語 / English"><button type="button" class="lang-btn active" data-lang="ja" aria-pressed="true">日本語</button><button type="button" class="lang-btn" data-lang="en" aria-pressed="false">English</button></div></div>
             </div>
-            <h1 class="user-name" data-i18n="user-name">かいざー</h1>
-            <p class="vrchat-id" data-i18n="vrchat-id">VRChat ID: かいざー</p>
-            <p class="catchphrase" data-i18n="catchphrase">まったりとお喋りしたり、写真を取ったり、ワールドを作ったりしています<br>趣味は、お絵かきとか、物書きとか、TRPGとか。<br>今は交通事故に遭って入院中……</p>
+            <div class="address-bar"><span class="address-label">URL</span><span class="address-text">kaiser-chix.github.io</span><span class="address-home" aria-hidden="true">⌂</span></div>
         </header>
 
-        <!-- About Section -->
-        <section class="glass-panel section-about" id="section-about">
-            <h2>About Me</h2>
+        <div class="page-layout">
+            <aside class="sidebar">
+                <nav class="menu-panel" aria-label="ページ内ナビゲーション">
+                    <h2 class="sidebar-title"><span aria-hidden="true">▤</span> <span data-i18n="menu-title">もくじ</span><small>CONTENTS</small></h2>
+                    <a href="#section-top" class="nav-item active" aria-current="location"><span class="nav-number">01</span><span data-i18n="nav-top">トップページ</span><span class="nav-arrow" aria-hidden="true">↗</span></a>
+                    <a href="#section-about" class="nav-item"><span class="nav-number">02</span><span data-i18n="nav-about">自己紹介</span><span class="nav-arrow" aria-hidden="true">↗</span></a>
+                    <a href="#section-lang" class="nav-item"><span class="nav-number">03</span><span data-i18n="nav-language">ことば</span><span class="nav-arrow" aria-hidden="true">↗</span></a>
+                    <a href="#section-env" class="nav-item"><span class="nav-number">04</span><span data-i18n="nav-env">プレイ環境</span><span class="nav-arrow" aria-hidden="true">↗</span></a>
+                    <a href="#section-connect" class="nav-item"><span class="nav-number">05</span><span data-i18n="nav-connect">リンク集</span><span class="nav-arrow" aria-hidden="true">↗</span></a>
+                </nav>
+                <section class="sidebar-note"><h2 data-i18n="note-title">管理人より</h2><span class="pixel-flower" aria-hidden="true">✿</span><p data-i18n="note-body">お喋り、創作、VRChat。<br>好きなものを、好きなペースで。</p><p class="note-signature">— <span data-i18n="user-name">かいざー</span></p></section>
+                <a class="site-banner" href="#section-top">
+                    <img src="assets/banner.svg" alt="KaiserProf" width="200" height="40">
+                </a>
+                <div class="visit-counter" id="visit-counter" hidden>
+                    <p data-i18n="counter-before">あなたは</p>
+                    <output class="counter-digits" id="counter-value"></output>
+                    <p data-i18n="counter-after">人目のお客様です</p>
+                </div>
+                <div class="web-badges" aria-label="サイトについて"><span class="web-badge badge-home">PERSONAL<br><strong>HOMEPAGE</strong></span><span class="web-badge badge-web">I ♥ THE<br><strong>WORLD WIDE WEB</strong></span></div>
+                <p class="sidebar-caption" data-i18n="sidebar-caption">寄り道していってね。</p>
+            </aside>
+
+            <main class="main-content" id="main-content" tabindex="-1">
+                <section class="welcome-panel" aria-labelledby="welcome-title">
+                    <div class="welcome-eyebrow"><span class="tiny-star" aria-hidden="true">✦</span> WELCOME TO MY HOMEPAGE <span class="tiny-star" aria-hidden="true">✦</span></div>
+                    <h1 id="welcome-title" data-i18n="welcome-title">ようこそ、かいざーのホームページへ。</h1>
+                    <p data-i18n="welcome-subtitle">ここは、かいざーのことと、いろんな居場所をまとめたページです。</p>
+                    <div class="welcome-bottom"><span class="welcome-tag">VRChat / Illustration / Writing / TRPG</span><span class="little-garden" aria-hidden="true">✿ · ✿ · ✿</span></div>
+                </section>
+
+                <section class="panel profile-hero" aria-labelledby="profile-title">
+                    <div class="section-heading"><h2 id="profile-title"><span aria-hidden="true">▣</span> <span data-i18n="profile-title">管理人のプロフィール</span></h2><span class="section-index">PROFILE / 01</span></div>
+                    <div class="profile-content"><figure class="avatar-container"><img src="assets/icon.png" alt="かいざーのアバターイラスト" class="avatar-img" width="720" height="720"><figcaption>WEBMASTER : KAISER</figcaption></figure><div class="profile-copy"><span class="profile-kicker">HELLO, WORLD!</span><h3 class="user-name" data-i18n="user-name">かいざー</h3><p class="vrchat-id" data-i18n="vrchat-id">VRChat ID: かいざー</p><p class="catchphrase" data-i18n="catchphrase">まったりとお喋りしたり、写真を取ったり、ワールドを作ったりしています<br>趣味は、お絵かきとか、物書きとか、TRPGとか。<br>今は交通事故に遭って入院中……</p></div></div>
+                </section>
+
+        <!-- プロフィールの詳細 -->
+        <section class="panel section-about" id="section-about" aria-labelledby="about-title">
+            <div class="section-heading"><h2 id="about-title"><span aria-hidden="true">▤</span> <span data-i18n="about-title">もう少し、自己紹介</span></h2><span class="section-index">ABOUT / 02</span></div>
             <div class="about-content">
                 <div class="about-item">
-                    <span class="icon" aria-hidden="true">💬</span>
                     <div class="details">
-                        <h3>Play Style</h3>
+                        <h3 data-i18n="play-style-title">あそびかた</h3>
                         <p data-i18n="play-style-desc">雑談メイン / 時々謎解きやイベントに参加</p>
                     </div>
                 </div>
                 <div class="about-item">
-                    <span class="icon" aria-hidden="true">🌙</span>
                     <div class="details">
-                        <h3>Active Time</h3>
+                        <h3 data-i18n="active-time-title">よくいる時間</h3>
                         <p id="active-time-text">21:00 - 27:00 (JST)</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Language Section -->
-        <section class="glass-panel section-tags" id="section-lang">
-            <h2>Language</h2>
+        <div class="info-grid">
+        <!-- 使用言語 -->
+        <section class="panel section-tags" id="section-lang" aria-labelledby="language-title">
+            <div class="section-heading"><h2 id="language-title"><span aria-hidden="true">Aa</span> <span data-i18n="language-title">ことば</span></h2><span class="section-index">03</span></div>
             <div class="tag-cloud">
                 <span class="tag" data-i18n="tag-lang-ja">日本語 (ネイティブ)</span>
                 <span class="tag" data-i18n="tag-lang-en">英語 (読み書きなら。喋れない)</span>
             </div>
         </section>
 
-        <!-- Environment & Status Section -->
-        <section class="glass-panel section-tags" id="section-env">
-            <h2>Environment & Status</h2>
+        <!-- プレイ環境と休止状況 -->
+        <section class="panel section-tags" id="section-env" aria-labelledby="env-title">
+            <div class="section-heading"><h2 id="env-title"><span aria-hidden="true">▧</span> <span data-i18n="env-title">プレイ環境</span></h2><span class="section-index">04</span></div>
             <div class="tag-cloud">
                 <span class="tag">Desktop</span>
                 <span class="tag inactive" data-i18n="tag-pcvr">PCVR (入院中により休止中)</span>
@@ -114,13 +120,15 @@
                 <span class="tag inactive" data-i18n="tag-fulltrack">フルトラ (6点) (入院中により休止中)</span>
             </div>
         </section>
+        </div>
 
-        <!-- Links -->
-        <section class="glass-panel section-links" id="section-connect">
-            <h2>Connect</h2>
+        <!-- 外部リンク集 -->
+        <section class="panel section-links" id="section-connect" aria-labelledby="connect-title">
+            <div class="section-heading"><h2 id="connect-title"><span aria-hidden="true">↗</span> <span data-i18n="connect-title">インターネットの居場所</span></h2><span class="section-index">LINKS / 05</span></div>
+            <p class="links-intro" data-i18n="links-intro">あちこちにいます。気の合いそうなところで、どうぞよろしく。</p>
             
             <div class="link-group">
-                <h3 class="link-group-title">Main Accounts</h3>
+                <h3 class="link-group-title"><span data-i18n="main-accounts">いつもの居場所</span><small>MAIN ACCOUNTS</small></h3>
                 <div class="link-cards-container">
                     <a href="https://vrchat.com/home/user/usr_2dc5feac-036e-48bd-b00c-5d810f39b242" class="link-card"
                         target="_blank" rel="noopener noreferrer">
@@ -155,7 +163,7 @@
             </div>
 
             <div class="link-group">
-                <h3 class="link-group-title">Works</h3>
+                <h3 class="link-group-title"><span data-i18n="works">つくったもの・ご依頼</span><small>WORKS</small></h3>
                 <div class="link-cards-container">
                     <a href="https://www.fanbox.cc/@kaiservrchat" class="link-card yellow-card" target="_blank" rel="noopener noreferrer">
                         <div class="link-card-header">
@@ -175,7 +183,7 @@
             </div>
 
             <div class="link-group">
-                <h3 class="link-group-title">Wishlist</h3>
+                <h3 class="link-group-title"><span data-i18n="wishlist">ほしいもの</span><small>WISHLIST</small></h3>
                 <div class="link-cards-container">
                     <a href="https://www.amazon.jp/hz/wishlist/ls/199GSIRVBLFCM?ref_=wl_share"
                         class="link-card special-card" target="_blank" rel="noopener noreferrer">
@@ -196,7 +204,7 @@
             </div>
 
             <div class="link-group">
-                <h3 class="link-group-title">Other Accounts</h3>
+                <h3 class="link-group-title"><span data-i18n="other-accounts">そのほかのアカウント</span><small>OTHER ACCOUNTS</small></h3>
                 <div class="link-cards-container">
                     <a href="https://nekolobby.niri.la/@kaiser" class="link-card inactive" target="_blank" rel="noopener noreferrer">
                         <div class="link-card-header">
@@ -241,12 +249,17 @@
             </div>
         </section>
 
-        <footer>
+            <div class="page-end"><span aria-hidden="true">✦ ─── ✦ ─── ✦</span><a href="#section-top" data-i18n="back-top">↑ ページのいちばん上へ</a></div>
+            </main>
+        </div>
+        <footer class="site-footer">
+            <p class="footer-thanks" data-i18n="footer-thanks">ここまで見てくれて、ありがとう。</p>
             <p data-i18n="footer-text">&copy; 2026 かいざー. All Rights Reserved.</p>
+            <span class="footer-label">MADE WITH ♥ &amp; HTML</span>
         </footer>
     </div>
 
-    <!-- Custom JS -->
+    <!-- 言語切り替えとページ内ナビゲーション -->
     <script src="js/main.js"></script>
 </body>
 
