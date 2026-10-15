@@ -51,6 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const minimum = 100000;
         const maximum = 999999;
         const now = Date.now();
+        // 一部の桁に含まれる場合も除外する。先頭のゼロを保つため文字列で管理する。
+        const memeNumberFragments = [
+            '114514', '1919', '810', '893', '931', '364364', '889464', '89464',
+            '334', '4545', '0721', '8181', '8585',
+            '1337', '420', '69', '67', '8008', '80085'
+        ];
 
         const isSpecialNumber = (value) => {
             const digits = String(value);
@@ -61,7 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 || digits === digits.slice(0, 3).repeat(2);
             const isPalindrome = digits === [...digits].reverse().join('');
             const isSequence = '0123456789'.includes(digits) || '9876543210'.includes(digits);
-            return isRound || isRepeated || isPalindrome || isSequence;
+            const containsMemeNumber = memeNumberFragments.some(fragment => digits.includes(fragment));
+            return isRound || isRepeated || isPalindrome || isSequence || containsMemeNumber;
         };
 
         const nextAllowedNumber = (value) => {
